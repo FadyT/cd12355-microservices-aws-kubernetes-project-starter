@@ -12,7 +12,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - echo ls
+      - ls
       - docker build -t coworking-analytics /analytics
       - echo Tagging the Docker image...
       - docker tag coworking-analytics:latest $ECR_REPOSITORY_URI:latest

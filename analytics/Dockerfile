@@ -1,8 +1,18 @@
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
 
 # Use the official Python image from the Docker Hub
 FROM python:3.8-slim
+
+# Install build tools
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    python3-dev \
+    gcc \
+    g++ \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
 
 # Set the working directory in the container
 WORKDIR /app

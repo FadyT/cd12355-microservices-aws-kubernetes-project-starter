@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    ECR_REPOSITORY_URI: "<your-ecr-repository-uri>"
+    ECR_REPOSITORY_URI: "https://2bd5f29e3d509d9d735c34b64da4da95.yl4.us-east-1.eks.amazonaws.com/"
 phases:
   pre_build:
     commands:

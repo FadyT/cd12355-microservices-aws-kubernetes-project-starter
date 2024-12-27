@@ -12,8 +12,8 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - ls
-      - docker build -t coworking-analytics /analytics
+      - cd analytics
+      - docker build -t coworking-analytics .
       - echo Tagging the Docker image...
       - docker tag coworking-analytics:latest $ECR_REPOSITORY_URI:latest
       - docker tag coworking-analytics:latest $ECR_REPOSITORY_URI:$CODEBUILD_BUILD_NUMBER

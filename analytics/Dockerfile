@@ -2,6 +2,7 @@
 # Use the official Python image from the Docker Hub
 FROM python:3.8-slim
 
+
 # Install build tools
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -10,6 +11,9 @@ RUN apt-get update && apt-get install -y \
     g++ \
     && rm -rf /var/lib/apt/lists/*
 
+
+# Upgrade Flask and Werkzeug
+RUN pip install --upgrade Flask Werkzeug
 
 # Set the working directory in the container
 WORKDIR /app
@@ -27,4 +31,4 @@ COPY . .
 EXPOSE 5153
 
 # Run the application
-CMD ["python", "analytics/app.py"]
+CMD ["python", "app.py"]
